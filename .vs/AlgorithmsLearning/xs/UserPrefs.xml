@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{AAA5CC92-D855-4885-B729-0D31107D0932}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AlgorithmsLearning/SortingAndSearching.cs">
+    <Files>
+      <File FileName="AlgorithmsLearning/Program.cs" Line="15" Column="39" />
+      <File FileName="AlgorithmsLearning/LinkedListPractice.cs" Line="465" Column="10" />
+      <File FileName="AlgorithmsLearning/Node.cs" Line="4" Column="18" />
+      <File FileName="AlgorithmsLearning/FloydWarshallAlgorithm.cs" Line="1" Column="1" />
+      <File FileName="AlgorithmsLearning/UnionFindAlgorithm.cs" Line="33" Column="14" />
+      <File FileName="AlgorithmsLearning/DynamicProgramming.cs" Line="52" Column="27" />
+      <File FileName="AlgorithmsLearning/BoggleAlgorithmUsingTire.cs" Line="1" Column="1" />
+      <File FileName="AlgorithmsLearning/BoggleAlgorithm.cs" Line="1" Column="1" />
+      <File FileName="AlgorithmsLearning/PriorityQueue.cs" Line="1" Column="1" />
+      <File FileName="AlgorithmsLearning/BinaryTree.cs" Line="31" Column="36" />
+      <File FileName="AlgorithmsLearning/SortingAndSearching.cs" Line="261" Column="20" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/wangpinchieh/Projects/AlgorithmsLearning/AlgorithmsLearning/SortingAndSearching.cs" relfile="AlgorithmsLearning/SortingAndSearching.cs" line="50" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.AlgorithmsLearning PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

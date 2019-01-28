@@ -1,0 +1,11 @@
+/Users/wangpinchieh/Projects/AlgorithmsLearning/AlgorithmsLearning/bin/Debug/netcoreapp2.1/AlgorithmsLearning.deps.json
+/Users/wangpinchieh/Projects/AlgorithmsLearning/AlgorithmsLearning/bin/Debug/netcoreapp2.1/AlgorithmsLearning.runtimeconfig.json
+/Users/wangpinchieh/Projects/AlgorithmsLearning/AlgorithmsLearning/bin/Debug/netcoreapp2.1/AlgorithmsLearning.runtimeconfig.dev.json
+/Users/wangpinchieh/Projects/AlgorithmsLearning/AlgorithmsLearning/bin/Debug/netcoreapp2.1/AlgorithmsLearning.dll
+/Users/wangpinchieh/Projects/AlgorithmsLearning/AlgorithmsLearning/bin/Debug/netcoreapp2.1/AlgorithmsLearning.pdb
+/Users/wangpinchieh/Projects/AlgorithmsLearning/AlgorithmsLearning/obj/Debug/netcoreapp2.1/AlgorithmsLearning.csprojAssemblyReference.cache
+/Users/wangpinchieh/Projects/AlgorithmsLearning/AlgorithmsLearning/obj/Debug/netcoreapp2.1/AlgorithmsLearning.csproj.CoreCompileInputs.cache
+/Users/wangpinchieh/Projects/AlgorithmsLearning/AlgorithmsLearning/obj/Debug/netcoreapp2.1/AlgorithmsLearning.AssemblyInfoInputs.cache
+/Users/wangpinchieh/Projects/AlgorithmsLearning/AlgorithmsLearning/obj/Debug/netcoreapp2.1/AlgorithmsLearning.AssemblyInfo.cs
+/Users/wangpinchieh/Projects/AlgorithmsLearning/AlgorithmsLearning/obj/Debug/netcoreapp2.1/AlgorithmsLearning.dll
+/Users/wangpinchieh/Projects/AlgorithmsLearning/AlgorithmsLearning/obj/Debug/netcoreapp2.1/AlgorithmsLearning.pdb
