@@ -255,6 +255,43 @@ namespace AlgorithmsLearning
             return -1;
 
         }
+        public void QuickSort(int[] arr, int startingIndex, int endingIndex)
+        {
+
+            if (startingIndex < endingIndex)
+            {
+
+                int _PartitionIndex = Partition(arr, startingIndex, endingIndex);
+
+                QuickSort(arr, startingIndex, _PartitionIndex - 1);
+                QuickSort(arr, _PartitionIndex + 1, endingIndex);
+            }
+
+        }
+        public int Partition(int[] arr, int startingIndex, int endingIndex)
+        {
+
+            int _PivotValue = arr[endingIndex];
+            int _IndexToBeReplaced = startingIndex;
+            int _Temp = 0;
+            for (int i = startingIndex; i < endingIndex; i++)
+            {
+                if (arr[i] <= arr[endingIndex])
+                {
+                    _Temp = arr[i];
+                    arr[i] = arr[_IndexToBeReplaced];
+                    arr[_IndexToBeReplaced] = _Temp;
+
+                    _IndexToBeReplaced++;
+                }
+            }
+            _Temp = arr[_IndexToBeReplaced];
+            arr[_IndexToBeReplaced] = arr[endingIndex];
+            arr[endingIndex] = _Temp;
+
+            return _IndexToBeReplaced;
+        }
+
         public void FindClosestPair(int[] arr, int target, out int leftIndex, out int rightIndex)
         {
             leftIndex = 0;
