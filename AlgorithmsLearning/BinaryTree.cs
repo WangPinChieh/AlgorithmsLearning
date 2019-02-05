@@ -36,8 +36,20 @@ namespace AlgorithmsLearning
             //else
             //Console.Write("false");
             //1 5 7 10 40 50
-            TreeNode[] _TreeNodes = new TreeNode[] { new TreeNode(10), new TreeNode(5), new TreeNode(1), new TreeNode(7), new TreeNode(40), new TreeNode(50) };
-            TreeNode _Root = ConstructBinarySearchTreePreOrder(_TreeNodes);
+            //TreeNode[] _TreeNodes = new TreeNode[] { new TreeNode(10), new TreeNode(5), new TreeNode(1), new TreeNode(7), new TreeNode(40), new TreeNode(50) };
+            //TreeNode _Root = ConstructBinarySearchTreePreOrder(_TreeNodes);
+
+            TreeNode tree = new TreeNode(1);
+            tree.left = new TreeNode(2);
+            tree.right = new TreeNode(3);
+            tree.left.left = new TreeNode(4);
+            tree.left.right = new TreeNode(5);
+            tree.right.right = new TreeNode(6);
+            tree.right.right.left = new TreeNode(8);
+            tree.left.left.left = new TreeNode(7);
+
+            RemoveTreeNodesWithKHelper(tree, 4, 1);
+
 
             Console.ReadKey();
         }
@@ -153,6 +165,27 @@ namespace AlgorithmsLearning
 
             return _Root;
         }
+        public void RemoveTreeNodeWithK(TreeNode node, int k) { 
+
+        
+        }
+        public TreeNode RemoveTreeNodesWithKHelper(TreeNode node, int k, int counter)
+        {
+            if (node == null)
+                return null;
+
+            node.left = RemoveTreeNodesWithKHelper(node.left, k, counter + 1);
+
+            node.right = RemoveTreeNodesWithKHelper(node.right, k, counter + 1);
+
+            if (node.left == null && node.right == null && counter < k)
+                return null;
+            else
+                return node;
+
+
+        }
+
 
         public class TreeNode
         {
