@@ -51,6 +51,29 @@ namespace AlgorithmsLearning
             //RemoveTreeNodesWithKHelper(tree, 4, 1);
 
 
+            //TreeNode tree = new TreeNode(20);
+            //tree.left = new TreeNode(8);
+            //tree.right = new TreeNode(22);
+            //tree.left.left = new TreeNode(4);
+            //tree.left.right = new TreeNode(12);
+            //tree.left.right.left = new TreeNode(10);
+            //tree.left.right.right = new TreeNode(14);
+
+            //int n1 = 10, n2 = 14;
+            //TreeNode t = FindLowestCommonAncestor(tree, n1, n2);
+            //Console.WriteLine("LCA of " + n1 + " and " + n2 + " is " + t.data);
+
+            //n1 = 14;
+            //n2 = 8;
+            //t = FindLowestCommonAncestor(tree, n1, n2);
+            //Console.WriteLine("LCA of " + n1 + " and " + n2 + " is " + t.data);
+
+            //n1 = 10;
+            //n2 = 22;
+            //t = FindLowestCommonAncestor(tree, n1, n2);
+            //Console.WriteLine("LCA of " + n1 + " and " + n2 + " is " + t.data);
+
+
             TreeNode tree = new TreeNode(20);
             tree.left = new TreeNode(8);
             tree.right = new TreeNode(22);
@@ -59,21 +82,14 @@ namespace AlgorithmsLearning
             tree.left.right.left = new TreeNode(10);
             tree.left.right.right = new TreeNode(14);
 
-            int n1 = 10, n2 = 14;
-            TreeNode t = FindLowestCommonAncestor(tree, n1, n2);
-            Console.WriteLine("LCA of " + n1 + " and " + n2 + " is " + t.data);
+            TreeNode tree2 = new TreeNode(8);
+            tree2.left = new TreeNode(4);
+            tree2.right = new TreeNode(12);
+            tree2.right.left = new TreeNode(10);
+            tree2.right.right = new TreeNode(14);
 
-            n1 = 14;
-            n2 = 8;
-            t = FindLowestCommonAncestor(tree, n1, n2);
-            Console.WriteLine("LCA of " + n1 + " and " + n2 + " is " + t.data);
-
-            n1 = 10;
-            n2 = 22;
-            t = FindLowestCommonAncestor(tree, n1, n2);
-            Console.WriteLine("LCA of " + n1 + " and " + n2 + " is " + t.data);
-
-
+            bool _Result = CheckBinarySearchTreeIsSubTree(tree, tree2);
+            Console.WriteLine(_Result);
             Console.ReadKey();
         }
         public int FindMinimumDepth(TreeNode node)
@@ -214,6 +230,19 @@ namespace AlgorithmsLearning
                 return FindLowestCommonAncestor(root.left, t1, t2);
 
             return root;
+        }
+        public bool CheckBinarySearchTreeIsSubTree(TreeNode tree1, TreeNode tree2) { 
+        
+            return ConstructBinarySearchTreeStringInOrder(tree1).IndexOf(ConstructBinarySearchTreeStringInOrder(tree2)) != -1;
+
+        }
+
+        public string ConstructBinarySearchTreeStringInOrder(TreeNode node)
+        {
+            if (node == null)
+                return "";
+
+            return ConstructBinarySearchTreeStringInOrder(node.left) + ";" + node.data + ";" + ConstructBinarySearchTreeStringInOrder(node.right);
         }
         public class TreeNode
         {
