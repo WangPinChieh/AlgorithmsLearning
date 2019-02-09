@@ -39,16 +39,39 @@ namespace AlgorithmsLearning
             //TreeNode[] _TreeNodes = new TreeNode[] { new TreeNode(10), new TreeNode(5), new TreeNode(1), new TreeNode(7), new TreeNode(40), new TreeNode(50) };
             //TreeNode _Root = ConstructBinarySearchTreePreOrder(_TreeNodes);
 
-            TreeNode tree = new TreeNode(1);
-            tree.left = new TreeNode(2);
-            tree.right = new TreeNode(3);
-            tree.left.left = new TreeNode(4);
-            tree.left.right = new TreeNode(5);
-            tree.right.right = new TreeNode(6);
-            tree.right.right.left = new TreeNode(8);
-            tree.left.left.left = new TreeNode(7);
+            //TreeNode tree = new TreeNode(1);
+            //tree.left = new TreeNode(2);
+            //tree.right = new TreeNode(3);
+            //tree.left.left = new TreeNode(4);
+            //tree.left.right = new TreeNode(5);
+            //tree.right.right = new TreeNode(6);
+            //tree.right.right.left = new TreeNode(8);
+            //tree.left.left.left = new TreeNode(7);
 
-            RemoveTreeNodesWithKHelper(tree, 4, 1);
+            //RemoveTreeNodesWithKHelper(tree, 4, 1);
+
+
+            TreeNode tree = new TreeNode(20);
+            tree.left = new TreeNode(8);
+            tree.right = new TreeNode(22);
+            tree.left.left = new TreeNode(4);
+            tree.left.right = new TreeNode(12);
+            tree.left.right.left = new TreeNode(10);
+            tree.left.right.right = new TreeNode(14);
+
+            int n1 = 10, n2 = 14;
+            TreeNode t = FindLowestCommonAncestor(tree, n1, n2);
+            Console.WriteLine("LCA of " + n1 + " and " + n2 + " is " + t.data);
+
+            n1 = 14;
+            n2 = 8;
+            t = FindLowestCommonAncestor(tree, n1, n2);
+            Console.WriteLine("LCA of " + n1 + " and " + n2 + " is " + t.data);
+
+            n1 = 10;
+            n2 = 22;
+            t = FindLowestCommonAncestor(tree, n1, n2);
+            Console.WriteLine("LCA of " + n1 + " and " + n2 + " is " + t.data);
 
 
             Console.ReadKey();
@@ -165,10 +188,6 @@ namespace AlgorithmsLearning
 
             return _Root;
         }
-        public void RemoveTreeNodeWithK(TreeNode node, int k) { 
-
-        
-        }
         public TreeNode RemoveTreeNodesWithKHelper(TreeNode node, int k, int counter)
         {
             if (node == null)
@@ -185,8 +204,17 @@ namespace AlgorithmsLearning
 
 
         }
+        public TreeNode FindLowestCommonAncestor(TreeNode root, int t1, int t2)
+        {
+            if (root == null)
+                return null;
+            if (root.data < t1 && root.data < t2)
+                return FindLowestCommonAncestor(root.right, t1, t2);
+            if (root.data > t1 && root.data > t2)
+                return FindLowestCommonAncestor(root.left, t1, t2);
 
-
+            return root;
+        }
         public class TreeNode
         {
             public int data;

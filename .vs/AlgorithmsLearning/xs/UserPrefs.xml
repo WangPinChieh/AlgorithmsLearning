@@ -10,7 +10,7 @@
       <File FileName="AlgorithmsLearning/BoggleAlgorithmUsingTire.cs" Line="1" Column="1" />
       <File FileName="AlgorithmsLearning/BoggleAlgorithm.cs" Line="1" Column="1" />
       <File FileName="AlgorithmsLearning/PriorityQueue.cs" Line="1" Column="1" />
-      <File FileName="AlgorithmsLearning/BinaryTree.cs" Line="129" Column="10" />
+      <File FileName="AlgorithmsLearning/BinaryTree.cs" Line="207" Column="49" />
       <File FileName="AlgorithmsLearning/SortingAndSearching.cs" Line="50" Column="1" />
       <File FileName="AlgorithmsLearning/TopologicalSortingAlgorithm.cs" Line="1" Column="1" />
       <File FileName="AlgorithmsLearning/DijkstraAlgorithm.cs" Line="1" Column="1" />
@@ -19,9 +19,7 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/wangpinchieh/Projects/AlgorithmsLearning/AlgorithmsLearning/BinaryTree.cs" relfile="AlgorithmsLearning/BinaryTree.cs" line="42" column="13" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.AlgorithmsLearning PreferredExecutionTarget="MonoDevelop.Default" />
