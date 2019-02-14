@@ -16,6 +16,12 @@ namespace AlgorithmsLearning
             public TreeNode right;
             public TreeNode(int x) { val = x; }
         }
+        public class ListNode
+        {
+            public int val;
+            public ListNode next;
+            public ListNode(int x) { val = x; }
+        }
         public LeetCodePractices()
         {
 
@@ -44,10 +50,17 @@ namespace AlgorithmsLearning
 
             //_Root = TrimBST(_Root, 1, 3);
 
-            TreeNode _Root = new TreeNode(2);
-            _Root.left = new TreeNode(1);
-            _Root.right = new TreeNode(3);
-            _Root = TrimBST(_Root, 3, 4);
+            //TreeNode _Root = new TreeNode(2);
+            //_Root.left = new TreeNode(1);
+            //_Root.right = new TreeNode(3);
+            //_Root = TrimBST(_Root, 3, 4);
+
+            ListNode _L = new ListNode(1);
+            _L.next = new ListNode(2);
+            _L.next.next = new ListNode(3);
+            _L.next.next.next = new ListNode(4);
+            _L.next.next.next.next = new ListNode(5);
+            ListNode _Result = ReverseList(_L);
 
             Console.ReadKey();
         }
@@ -149,6 +162,27 @@ namespace AlgorithmsLearning
             }
 
             return root;
+        }
+
+        public ListNode ReverseList(ListNode head)
+        {
+            ListNode _Pointer = head;
+            ListNode _Previous = null;
+            ListNode _NewHead = null;
+            while (_Pointer != null)
+            {
+                ListNode _Next = _Pointer.next;
+
+                _Pointer.next = _Previous;
+
+                _Previous = _Pointer;
+
+                _NewHead = _Pointer;
+
+                _Pointer = _Next;
+            }
+
+            return _NewHead;
         }
     }
 }
