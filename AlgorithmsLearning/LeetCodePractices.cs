@@ -55,13 +55,16 @@ namespace AlgorithmsLearning
             //_Root.right = new TreeNode(3);
             //_Root = TrimBST(_Root, 3, 4);
 
-            ListNode _L = new ListNode(1);
-            _L.next = new ListNode(2);
-            _L.next.next = new ListNode(3);
-            _L.next.next.next = new ListNode(4);
-            _L.next.next.next.next = new ListNode(5);
-            ListNode _Result = ReverseList(_L);
+            //ListNode _L = new ListNode(1);
+            //_L.next = new ListNode(2);
+            //_L.next.next = new ListNode(3);
+            //_L.next.next.next = new ListNode(4);
+            //_L.next.next.next.next = new ListNode(5);
+            //ListNode _Result = ReverseList(_L);
 
+            int[] _Nums = new int[] { 2,3,3,2,4 };
+
+            Console.WriteLine(CheckPossibility(_Nums));
             Console.ReadKey();
         }
         public int NumJewelsInStones(string J, string S)
@@ -183,6 +186,34 @@ namespace AlgorithmsLearning
             }
 
             return _NewHead;
+        }
+
+        public bool CheckPossibility(int[] nums)
+        {
+            int _Counter = 0;
+            for (int i = 1; i < nums.Length - 1; i++)
+            {
+                if (nums[i - 1] > nums[i])
+                {
+                    if (nums[i - 1] > nums[i + 1])
+                        nums[i - 1] = nums[i];
+                    else
+                        nums[i] = nums[i - 1];
+
+                    _Counter++;
+                }
+                if (nums[i] > nums[i + 1])
+                {
+                    if (nums[i - 1] > nums[i + 1])
+                        nums[i + 1] = nums[i];
+                    else
+                        nums[i] = nums[i + 1];
+
+                    _Counter++;
+                }
+            }
+
+            return _Counter <= 1;
         }
     }
 }
