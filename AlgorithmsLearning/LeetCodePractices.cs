@@ -7,6 +7,13 @@ using System.Threading.Tasks;
 namespace AlgorithmsLearning
 {
 
+    public class ListNode
+    {
+        public int val;
+        public ListNode next;
+        public ListNode(int x) { val = x; }
+    }
+
     public class LeetCodePractices
     {
         private class TreeNode
@@ -16,12 +23,7 @@ namespace AlgorithmsLearning
             public TreeNode right;
             public TreeNode(int x) { val = x; }
         }
-        public class ListNode
-        {
-            public int val;
-            public ListNode next;
-            public ListNode(int x) { val = x; }
-        }
+
         public LeetCodePractices()
         {
 
@@ -62,7 +64,7 @@ namespace AlgorithmsLearning
             //_L.next.next.next.next = new ListNode(5);
             //ListNode _Result = ReverseList(_L);
 
-            int[] _Nums = new int[] { 2,3,3,2,4 };
+            int[] _Nums = new int[] { 2, 3, 3, 2, 4 };
 
             Console.WriteLine(CheckPossibility(_Nums));
             Console.ReadKey();
@@ -214,6 +216,117 @@ namespace AlgorithmsLearning
             }
 
             return _Counter <= 1;
+        }
+    }
+
+    public class MyLinkedList
+    {
+        private ListNode m_LinkedList = null;
+        private int m_Length = 0;
+        /** Initialize your data structure here. */
+        public MyLinkedList()
+        {
+
+        }
+
+        /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
+        public int Get(int index)
+        {
+            if (this.m_LinkedList == null)
+                return -1;
+
+            if (index >= 0 && index < this.m_Length)
+            {
+                ListNode _Pointer = this.m_LinkedList;
+                int _LoopCounter = 0;
+
+                while (_LoopCounter != index)
+                {
+                    _Pointer = _Pointer.next;
+                    _LoopCounter++;
+                }
+
+                return _Pointer.val;
+            }
+            else
+                return -1;
+        }
+
+        /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
+        public void AddAtHead(int val)
+        {
+            ListNode _NewHead = new ListNode(val)
+            {
+                next = this.m_LinkedList
+            };
+
+            this.m_LinkedList = _NewHead;
+            this.m_Length++;
+        }
+
+        /** Append a node of value val to the last element of the linked list. */
+        public void AddAtTail(int val)
+        {
+            ListNode _Node = new ListNode(val);
+            if (this.m_LinkedList == null)
+                this.m_LinkedList = _Node;
+            else
+            {
+                ListNode _Pointer = this.m_LinkedList;
+                while (_Pointer.next != null)
+                {
+                    _Pointer = _Pointer.next;
+                }
+                _Pointer.next = _Node;
+            }
+            this.m_Length++;
+        }
+
+        /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
+        public void AddAtIndex(int index, int val)
+        {
+            if (index < 0 || index > this.m_Length)
+                return;
+
+            if (index == this.m_Length || this.m_LinkedList == null)
+            {
+                AddAtTail(val);
+                return;
+            }
+
+            ListNode _Pointer = this.m_LinkedList;
+            int _Counter = 0;
+            while (_Pointer.next != null && index != _Counter + 1)
+            {
+                _Pointer = _Pointer.next;
+                _Counter++;
+            }
+
+            ListNode _Next = _Pointer.next;
+            _Pointer.next = new ListNode(val) { next = _Next };
+            this.m_Length++;
+
+        }
+
+        /** Delete the index-th node in the linked list, if the index is valid. */
+        public void DeleteAtIndex(int index)
+        {
+            if (this.m_LinkedList == null)
+                return;
+            if (index >= 0 && index < this.m_Length)
+            {
+                ListNode _Pointer = this.m_LinkedList;
+                ListNode _PreviousPointer = null;
+                int _Counter = 0;
+                while (_Pointer.next != null && _Counter != index)
+                {
+                    _PreviousPointer = _Pointer;
+                    _Pointer = _Pointer.next;
+                    _Counter++;
+                }
+                _PreviousPointer.next = _Pointer.next;
+                this.m_Length--;
+            }
         }
     }
 }
