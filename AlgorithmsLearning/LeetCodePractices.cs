@@ -64,9 +64,11 @@ namespace AlgorithmsLearning
             //_L.next.next.next.next = new ListNode(5);
             //ListNode _Result = ReverseList(_L);
 
-            int[] _Nums = new int[] { 2, 3, 3, 2, 4 };
+            //int[] _Nums = new int[] { 2, 3, 3, 2, 4 };
 
-            Console.WriteLine(CheckPossibility(_Nums));
+            //Console.WriteLine(CheckPossibility(_Nums));
+
+            Console.WriteLine(BuddyStrings("aa", "aa"));
             Console.ReadKey();
         }
         public int NumJewelsInStones(string J, string S)
@@ -216,6 +218,63 @@ namespace AlgorithmsLearning
             }
 
             return _Counter <= 1;
+        }
+        public int Reverse(int x)
+        {
+            bool _IsMinus = x < 0;
+            int _Result = 0;
+            string _IntString = x.ToString();
+            string _ReversedIntString = string.Empty;
+
+            if (_IsMinus)
+                _IntString = _IntString.Replace("-", "");
+
+            for (int i = _IntString.Length - 1; i >= 0; i--)
+            {
+                _ReversedIntString += _IntString[i];
+            }
+
+            if (_IsMinus)
+                _ReversedIntString = "-" + _ReversedIntString;
+
+            if (int.TryParse(_ReversedIntString, out _Result))
+                return _Result;
+            else
+                return 0;
+
+        }
+        public bool BuddyStrings(string A, string B)
+        {
+            if (A.Length != B.Length)
+                return false;
+
+            int _DifferenceCounter = 0;
+            int _LenOfString = A.Length;
+            bool _HasTwoAlternatives = false;
+            int[] _NumOfWordsInA = new int[123];
+            int[] _NumOfWordsInB = new int[123];
+            for (int i = 0; i < _LenOfString; i++)
+            {
+                if (!A[i].Equals(B[i]))
+                    _DifferenceCounter++;
+
+                if (_DifferenceCounter > 2)
+                    return false;
+
+                _NumOfWordsInA[A[i]]++;
+                _NumOfWordsInB[B[i]]++;
+            }
+            for (int i = 1; i < 123; i++)
+            {
+                if (!_NumOfWordsInA[i].Equals(_NumOfWordsInB[i]))
+                    return false;
+
+                if (_NumOfWordsInA[i] >= 2 && _NumOfWordsInB[i] >= 2)
+                    _HasTwoAlternatives = true;
+
+            }
+
+            return _DifferenceCounter == 2 || (_DifferenceCounter == 0 && _HasTwoAlternatives);
         }
     }
 
