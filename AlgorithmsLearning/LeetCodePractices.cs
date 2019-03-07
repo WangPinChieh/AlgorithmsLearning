@@ -68,7 +68,11 @@ namespace AlgorithmsLearning
 
             //Console.WriteLine(CheckPossibility(_Nums));
 
-            Console.WriteLine(BuddyStrings("aa", "aa"));
+            //Console.WriteLine(BuddyStrings("aa", "aa"));
+
+            Console.WriteLine(52 / 26);
+            Console.WriteLine(52 % 26);
+            Console.WriteLine(ConvertToTitle(52));
             Console.ReadKey();
         }
         public int NumJewelsInStones(string J, string S)
@@ -275,6 +279,70 @@ namespace AlgorithmsLearning
             }
 
             return _DifferenceCounter == 2 || (_DifferenceCounter == 0 && _HasTwoAlternatives);
+        }
+        /*Sieve of Eratosthenes*/
+        public int CountPrimes(int n)
+        {
+            int _Result = 0;
+            bool[] _PrimeMarker = new bool[n];
+            for (long i = 2; i < n; i++)
+            {
+                if (_PrimeMarker[i] == true)
+                    continue;
+
+                int _Added = 0;
+                while (i * (i + _Added) < n)
+                {
+                    _PrimeMarker[i * (i + _Added)] = true;
+                    _Added++;
+                }
+            }
+
+            for (long i = 2; i < n; i++)
+            {
+                if (_PrimeMarker[i] == false)
+                    _Result++;
+            }
+
+            return _Result;
+        }
+        /*Given a positive integer, return its corresponding column title as appear in an Excel sheet.*/
+        public string ConvertToTitle(int n)
+        {
+            string _Result = string.Empty;
+            string[] _AlphabetBase = new string[27];
+            int _Index = 1;
+            for (char c = 'A'; c <= 'Z'; c++)
+            {
+                _AlphabetBase[_Index] = c.ToString();
+                _Index++;
+            }
+            if (n <= 26)
+            {
+                return _AlphabetBase[n];
+            }
+            else
+                return ConvertToTitleHelper(n, _AlphabetBase);
+        }
+        public string ConvertToTitleHelper(int n, string[] alphabetBase)
+        {
+            string _Result = string.Empty;
+            int _ReminingNum = n % 26;
+            int _DividedNum = n / 26;
+            if (_ReminingNum == 0)
+            {
+                _ReminingNum = 26;
+                _DividedNum--;
+            }
+
+            if (n / 26 > 26)
+            {
+                _Result = ConvertToTitleHelper(_DividedNum, alphabetBase) + alphabetBase[_ReminingNum];
+            }
+            else
+                _Result = alphabetBase[_DividedNum] + alphabetBase[_ReminingNum];
+
+            return _Result;
         }
     }
 
